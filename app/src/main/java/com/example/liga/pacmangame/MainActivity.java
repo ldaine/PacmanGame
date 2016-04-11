@@ -17,11 +17,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = (Button) findViewById(R.id.moveButton);
+
+        Button leftButton = (Button) findViewById(R.id.leftButton);
+        Button upButton = (Button) findViewById(R.id.upButton);
+        Button downButton = (Button) findViewById(R.id.downButton);
+        Button rightButton = (Button) findViewById(R.id.rightButton);
+
         gameView = (GameView) findViewById(R.id.gameView);
 
         //listener of our pacman
-        button.setOnClickListener(new OnClickListener() {
+        leftButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameView.moveLeft(10);
+            }
+        });
+
+        upButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameView.moveUp(10);
+            }
+        });
+
+        downButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameView.moveDown(10);
+            }
+        });
+
+        rightButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 gameView.moveRight(10);
